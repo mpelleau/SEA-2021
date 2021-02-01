@@ -2,6 +2,12 @@
 
 ## Building the Docker image
 
+First, clone this repository, then:
+```
+cd docker
+docker build -t sea .
+```
+This will build a docker image with all the data, benchs and binaries needed. The `-t sea` tag gives the container a name (used below in the examples).
 
 ## This is a preliminary repository for the submission SEA 2021
 
