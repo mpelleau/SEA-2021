@@ -55,6 +55,7 @@ docker run -it sea /home/hyperclique/hyperclique -a -i tuwien-htd/Dubois-030.xml
 
 Or, if you opened an interactive shell with the following command:
 ```bash
+>> docker run -it sea /bin/bash
 root@91a79eae4e67:/home/hyperclique# ./hyperclique -a -i tuwien-htd/Dubois-030.xml.htd     
 c +============================================================================+
 c | Hyperclique enumerations                                                   |
