@@ -192,3 +192,19 @@ which gives you the JSON
 ```
 {"bench": "./tuwien-htd/Nonogram-074-table.xml.htd", "o": 0, "f": 4, "n": 0, "hyperedges": 40, "nodes": 384, "maxrank": 24, "parsingtime": 0.000521, "m": "c", "cliques": [{"nbnodes": 384, "nbedges": 16, "nbcliques": 16, "rank": 24, "time": 4.3197e-05, "nbcalls": 0}, {"nbnodes": 384, "nbedges": 24, "nbcliques": 24, "rank": 16, "time": 0.0838645, "nbcalls": 3265}], "totalcliques": 40, "totalcalls": 3265, "timedout": 0, "bktotaltime": 0.0853867, "totaltime": 0.0859073}
 ```
+
+## Interesting queries
+
+The table `interestingbenchs` contains all the selected benchs from the paper:
+```sql
+SELECT count(*) FROM interestingbenchs:
+```
+Will give you 1037. You can get the names by `SELECT bench from interestingbenchs;`
+
+Other queries
+- Jobs in DB : `SELECT COUNT(*) FROM runs;`
+- Total CPU Time (in days): `SELECT ROUND(SUM(totaltime)/3600/24) FROM runs;`
+- Number of timed out jobs:`SELECT COUNT(*) FROM runs WHERE timedout=1;`,
+- Number of trivial jobs (<0.1s): `SELECT COUNT(*) FROM runs WHERE totaltime < 0.1;`
+- Number of interesting jobs (>1s): `SELECT COUNT(*) FROM runs WHERE totaltime > 1;`
+- Number of interesting benchs: `SELECT COUNT(*) FROM interestingbenchs;`
