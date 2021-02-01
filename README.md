@@ -211,7 +211,7 @@ Other queries
 
 Generates the data for the scatter plot:
 ```sql
-    '''SELECT (CASE WHEN runsA.timedout==1 THEN 2000 ELSE runsA.totaltime END) AS timeA, 
+    SELECT (CASE WHEN runsA.timedout==1 THEN 2000 ELSE runsA.totaltime END) AS timeA, 
               (CASE WHEN runsB.timedout==1 THEN 2000 ELSE runsB.totaltime END) AS timeB,
               category
        FROM runs AS runsA, runs AS runsB, interestingbenchs, categories 
