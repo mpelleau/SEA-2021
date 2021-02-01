@@ -1,5 +1,8 @@
 # SEA-2021
 
+## Building the Docker image
+
+
 ## This is a preliminary repository for the submission SEA 2021
 
 Once accepted, this repository will also contain the source code of our tool.
@@ -30,6 +33,49 @@ hyperclique is available at `/home/hyperclique/hyperclique`. You may want to run
 ```
 docker run -it sea /home/hyperclique/hyperclique -help
 ```
+
+All the problems are under `/home/hyperclique/tuwien-htd`. You can, for instance, run hyperclique with the first method (a) with the default values with:
+```bash
+root@91a79eae4e67:/home/hyperclique# ./hyperclique -a -j -i tuwien-htd/Dubois-030.xml.htd 
+{"bench": "tuwien-htd/Dubois-030.xml.htd", "o": 0, "f": 0, "n": 0, "hyperedges": 60, "nodes": 90, "maxrank": 3, "parsingtime": 0.000228, "m": "a", "cliques": [{"nbnodes": 90, "nbedges": 60, "nbcliques": 60, "rank": 3, "time": 0.00983233, "nbcalls": 308}], "totalcliques": 60, "totalcalls": 308, "timedout": 0, "bktotaltime": 0.0104824, "totaltime": 0.0107108}
+```
+
+To help reading/parsing the output, `jq` is installed on the docker. You can pretty print the output with
+``` bash
+root@91a79eae4e67:/home/hyperclique# ./hyperclique -a -j -i tuwien-htd/Dubois-030.xml.htd | jq
+```
+Which gives you the JSON output:
+```json
+{
+  "bench": "tuwien-htd/Dubois-030.xml.htd",
+  "o": 0,
+  "f": 0,
+  "n": 0,
+  "hyperedges": 60,
+  "nodes": 90,
+  "maxrank": 3,
+  "parsingtime": 0.00019,
+  "m": "a",
+  "cliques": [
+    {
+      "nbnodes": 90,
+      "nbedges": 60,
+      "nbcliques": 60,
+      "rank": 3,
+      "time": 0.0103165,
+      "nbcalls": 308
+    }
+  ],
+  "totalcliques": 60,
+  "totalcalls": 308,
+  "timedout": 0,
+  "bktotaltime": 0.0109974,
+  "totaltime": 0.0111877
+}
+```
+
+
+
 let's say you want to run again a configuration in the database. The main component in the traces is the table `runid`. 
 ```
 sqlite> .schema runs 
