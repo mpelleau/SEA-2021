@@ -46,6 +46,48 @@ docker run -it sea /home/hyperclique/hyperclique -help
 
 All the problems are under `/home/hyperclique/tuwien-htd`. You can, for instance, run hyperclique with the first method (a) with the default values with:
 ```bash
+root@91a79eae4e67:/home/hyperclique# ./hyperclique -a -i tuwien-htd/Dubois-030.xml.htd     
+c +============================================================================+
+c | Hyperclique enumerations                                                   |
+c | Main Developers:                                                           |
+c | - Marie Pelleau (marie.pelleau@univ-cotedazur.fr)                          |
+c | - Laurent Simon (lsimon@labri.fr)                                          |
+c | Contributors:                                                              |
+c | - Florian Régin (florian.regin@etu.univ-cotedazur.fr)                      |
+c |----------------------------------------------------------------------------|
+c |                                                                            |
+c | Debug:                                OFF                                  |
+c | Display:                               ON                                  |
+c | Hyper-Bron & Kerbosch enumeration:     ON                                  |
+c | Hybrid-Bron & Kerbosch enumeration:   OFF                                  |
+c | Clique-CE_HBK enumeration:            OFF                                  |
+c | Non-uniform clique enumeration:       OFF                                  |
+c | Filter:                               OFF                                  |
+c | Ordering:                          random                                  |
+c | Node filter:                          OFF                                  |
+c |                                                                            |
+c +============================================================================+
+c | *                      tuwien-htd/Dubois-030.xml.htd                       |
+c | *        60 hyperedges                                                     |
+c | *        90 nodes                                                          |
+c | *         3 max rank                                                       |
+c | parsing time: 0.000259192 seconds                                          |
+c +============================================================================+
+c | Hyper-Bron & Kerbosch enumeration:                                         |
+c |----------------------------------------------------------------------------|
+c |        90 |        60 |        60 |         3 | 0.011028915 seconds        |
+c | nb calls to BK:        308                                                 |
+c | total cliques found:          60                                           |
+c | total nb calls to BK:        308                                           |
+c | timedout:                      0                                           |
+c | BK total time: 0.011840922 seconds                                         |
+c | total time: 0.012100114 seconds                                            |
+c +============================================================================+
+```
+
+However, for parsing the results, you may want to use the `-j` argument to output a JSON line:
+
+```bash
 root@91a79eae4e67:/home/hyperclique# ./hyperclique -a -j -i tuwien-htd/Dubois-030.xml.htd 
 {"bench": "tuwien-htd/Dubois-030.xml.htd", "o": 0, "f": 0, "n": 0, "hyperedges": 60, "nodes": 90, "maxrank": 3, "parsingtime": 0.000228, "m": "a", "cliques": [{"nbnodes": 90, "nbedges": 60, "nbcliques": 60, "rank": 3, "time": 0.00983233, "nbcalls": 308}], "totalcliques": 60, "totalcalls": 308, "timedout": 0, "bktotaltime": 0.0104824, "totaltime": 0.0107108}
 ```
