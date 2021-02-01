@@ -9,7 +9,7 @@ https://mpelleau.shinyapps.io/Hyperclique/
 
 ## Building the Docker image
 
-First, clone this repository, then:
+First of all, you need a recent installation of `docker` and you need to build the docker image. For this, clone this repository, then:
 ```
 cd docker
 docker build -t sea .
