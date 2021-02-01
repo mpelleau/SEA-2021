@@ -1,5 +1,8 @@
 # SEA-2021
 
+**This is a preliminary repository for the submission SEA 2021**.
+Once accepted, this repository will also contain the source code of our tool.
+
 ## Building the Docker image
 
 First, clone this repository, then:
@@ -9,9 +12,10 @@ docker build -t sea .
 ```
 This will build a docker image with all the data, benchs and binaries needed. The `-t sea` tag gives the container a name (used below in the examples).
 
-## This is a preliminary repository for the submission SEA 2021
-
-Once accepted, this repository will also contain the source code of our tool.
+The container can open a `shell` by
+```
+docker run -it sea /bin/bash
+```
 
 ## Direct access to the database
 
