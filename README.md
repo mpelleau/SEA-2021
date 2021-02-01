@@ -169,3 +169,17 @@ which gives (the `LIMIT` keyword is of course optional)
 ./tuwien-htd/mdd-7-25-5-ps05-psh07-7.xml.htd|c|2|1|4|0.0065936|0
 ./tuwien-htd/Nonogram-155-table.xml.htd|c|2|1|4|0.0301679|0
 ```
+So, let's say you want to re-run the second entry
+```
+./tuwien-htd/Nonogram-074-table.xml.htd|c|2|1|4|0.0296264|0
+```
+
+You can launch it with (notice that the method is given by `-a`, `-b` or `-c` and not with `-m=a` or `-m=b` or `-m=c`
+
+``` 
+docker run sea /home/hyperclique/hyperclique -c -m=2 -n=1 -f4 -o0 -j -i ./tuwien-htd/Nonogram-074-table.xml.htd
+```
+which gives you the JSON
+```
+{"bench": "./tuwien-htd/Nonogram-074-table.xml.htd", "o": 0, "f": 4, "n": 0, "hyperedges": 40, "nodes": 384, "maxrank": 24, "parsingtime": 0.000521, "m": "c", "cliques": [{"nbnodes": 384, "nbedges": 16, "nbcliques": 16, "rank": 24, "time": 4.3197e-05, "nbcalls": 0}, {"nbnodes": 384, "nbedges": 24, "nbcliques": 24, "rank": 16, "time": 0.0838645, "nbcalls": 3265}], "totalcliques": 40, "totalcalls": 3265, "timedout": 0, "bktotaltime": 0.0853867, "totaltime": 0.0859073}
+```
