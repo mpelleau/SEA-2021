@@ -48,7 +48,12 @@ hyperclique is available at `/home/hyperclique/hyperclique`. You may want to run
 docker run -it sea /home/hyperclique/hyperclique -help
 ```
 
-All the problems are under `/home/hyperclique/tuwien-htd`. You can, for instance, run hyperclique with the first method (a) with the default values with:
+All the problems are under `/home/hyperclique/tuwien-htd`. You can, for instance, run hyperclique with the first method (a) with the default values from outside the docker image with
+```bash
+docker run -it sea /home/hyperclique/hyperclique -a -i tuwien-htd/Dubois-030.xml.htd
+```
+
+Or, if you opened an interactive shell with the following command:
 ```bash
 root@91a79eae4e67:/home/hyperclique# ./hyperclique -a -i tuwien-htd/Dubois-030.xml.htd     
 c +============================================================================+
