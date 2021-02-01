@@ -3,6 +3,10 @@
 **This is a preliminary repository for the submission SEA 2021**.
 Once accepted, this repository will also contain the source code of our tool.
 
+An interactive view of all the data presented here in the sqlite database is available at
+https://mpelleau.shinyapps.io/Hyperclique/
+
+
 ## Building the Docker image
 
 First, clone this repository, then:
@@ -128,7 +132,7 @@ Which gives you the JSON output:
 
 
 
-let's say you want to run again a configuration in the database. The main component in the traces is the table `runid`. 
+let's say you want to run again a configuration in the database. The main component in the traces is the table `runs`. 
 ```
 sqlite> .schema runs 
 CREATE TABLE runs
