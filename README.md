@@ -209,7 +209,7 @@ Other queries
 - Number of interesting jobs (>1s): `SELECT COUNT(*) FROM runs WHERE totaltime > 1;`
 - Number of interesting benchs: `SELECT COUNT(*) FROM interestingbenchs;`
 
-Generates the data for the scatter plot:
+Generates the data for the scatter plot (note that we use 2000s in case of a timeout just for a clear distinction on the scatter. This is not related to the Par2 scoring)
 ```sql
     SELECT (CASE WHEN runsA.timedout==1 THEN 2000 ELSE runsA.totaltime END) AS timeA, 
               (CASE WHEN runsB.timedout==1 THEN 2000 ELSE runsB.totaltime END) AS timeB,
@@ -221,3 +221,13 @@ Generates the data for the scatter plot:
              runsA.m='a' AND runsA.n=0 AND runsA.f=0 AND runsA.o=3 AND 
              runsB.m='a' AND runsB.n=2 AND runsB.f=1 AND runsB.o=3 
 ```
+
+Generates the Par2 Ranking for all the configurations:
+```sql
+        SELECT m, n, f, o, SUM(timedout) AS '#timeout',
+        SUM(CASE WHEN timedout==1 THEN 2600 ELSE totaltime END)/COUNT(*) AS Par2Score 
+        FROM runs, interestingbenchs
+        WHERE runs.bench=interestingbenchs.bench
+        GROUP by m, n, f, o
+        ORDER BY Par2Score ASC
+ ```
